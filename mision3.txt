@@ -1,0 +1,108 @@
+import statistics
+
+opcion,mayor=0,0
+b1=False
+codigo,nombre,mision1,mision2,mision3,nivelfinal=[],[],[],[],[],[]
+matriz=[[nombre],[codigo]]
+while opcion!=13:
+    opcion=int(input('''
+1. Solicite la cantidad N de talentos (solo se debe hacer una vez y no debe
+permitir hacer los otros hasta no haberla realizado)
+2. Registrar los datos de los talentos en una matriz 2xN (Código y Nombre)
+3. Registrar nota de Misión 1
+4. Registrar nota de Misión 2
+5. Registrar nota de Misión 3
+6. Registrar prueba de nivel final
+7. Mostrar nombre y nota del talento con la mejor nota en la Misión 1
+8. Mostrar nombre y nota del talento con la mejor nota en la Misión 2
+9. Mostrar nombre y nota del talento con la mejor nota en la Misión 3
+10.Mostrar el nombre y el promedio de cada talento (el promedio se obtiene
+de las 4 pruebas)
+11.Mostrar código, nombre, nota misión1, nota mision2 y nota misión 3, y
+prueba final
+12.Nombre de los talentos que desarrollaron el ejercicio
+13.Salir
+Digite su opción: '''))
+    match opcion:
+        case 1:
+            cantidad=(int(input('Digite la cantidad de talentos: ')))
+            b1=True
+        case 2:
+            if b1==True:
+                for i in range (cantidad):
+                    nom=(str(input('Digite el nombre del estudiante: ')))
+                    while nom == "":
+                        print('Cadena vacia, ingresa un nombre')
+                        nom=(str(input('Digite el nombre del estudiante: ')))
+                    nombre.append(nom)
+                    c=int(input('Digite el código del estudiante: '))
+                    while c in codigo:
+                        print('Código repetido, ingresa otro')
+                        c=int(input('Digite el código del estudiante: '))
+                    codigo.append(c)
+        case 3:
+            for i in range(cantidad):
+                m1=(float(input(f'Digite la misión 1 del estudiante {nombre[i]}: ')))
+                while m1<1 or m1>100:
+                    print('Valor fuera del rango')
+                    m1=(float(input(f'Digite la misión 1 del estudiante {nombre[i]}: ')))
+                mision1.append(m1)
+        case 4:
+            for i in range(cantidad):
+                m2=(float(input(f'Digite la misión 2 del estudiante {nombre[i]}: ')))
+                while m2<1 or m2>100:
+                    print('Valor fuera del rango')
+                    m2=(float(input(f'Digite la misión 2 del estudiante {nombre[i]}: ')))
+                mision2.append(m2)
+        case 5:
+            for i in range(cantidad):
+                m3=(float(input(f'Digite la misión 3 del estudiante {nombre[i]}: ')))
+                while m3<1 or m3>100:
+                    print('Valor fuera del rango')
+                    m3=(float(input(f'Digite la misión 3 del estudiante {nombre[i]}: ')))
+                mision3.append(m3)
+        case 6:  
+            for i in range(cantidad):
+                nf=(float(input(f'Digite prueba nivel final del estudiante {nombre[i]}: ')))
+                while nf<1 or nf>100:
+                    print('Valor fuera del rango')
+                    nf=(float(input(f'Digite prueba nivel final del estudiante {nombre[i]}: ')))
+                nivelfinal.append(nf)
+        case 7:
+            mayor=mision1[0]
+            for i in range(cantidad):
+                if mision1[i]>mayor:
+                        mayor=mision1[i]
+                        for i in range(cantidad):
+                            if mision1[i]==mayor:
+                                print(f'El talento con la mejor nota en la Misión 1 {nombre[i],mision1[i]}')
+        case 8:
+            mayor=mision2[0]
+            for i in range(cantidad):
+                if mision2[i]>mayor:
+                        mayor=mision2[i]
+                        for i in range(cantidad):
+                            if mision2[i]==mayor:
+                                print(f'El talento con la mejor nota en la Misión 2 {nombre[i],mision2[i]}')
+        case 9:
+            mayor=mision3[0]
+            for i in range(cantidad):
+                if mision3[i]>mayor:
+                        mayor=mision3[i]
+                        for i in range(cantidad):
+                            if mision3[i]==mayor:
+                                print(f'El talento con la mejor nota en la Misión 3 {nombre[i],mision3[i]}')
+        case 10:
+            for i in range(cantidad):
+                prom=(mision1[i]+mision2[i]+mision3[i]+nivelfinal[i])/4
+                print(f'{nombre[i]} : {prom}')
+        case 11:
+            for i in range(cantidad):
+                print(codigo[i],nombre[i],mision1[i],mision2[i],mision3[i],nivelfinal[i])
+        case 12:
+            print('Cielo Hasbleidy Mariño Garavito')
+        case 13:
+            print('Hasta luego')
+            break
+        case _:
+            print('Valor fuera del rango')

@@ -1,0 +1,6 @@
+c=float(input('Digita el valor de tu compra '))
+total=(15*(c))
+total1=(float(total)/100)
+print('Su descuento es del 15% ', total1)
+compra=(float(c)-total1)
+print('el valor total de su compra es ',compra)

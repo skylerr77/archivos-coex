@@ -1,0 +1,44 @@
+
+bandera1=False
+estatura=0
+peso=0
+imc=0
+opcion=0
+while opcion!=4:
+    opcion=int(input('''
+1. Ingresar cantidad de familiares.
+2. ingresar datos de los familiares necesarios para
+realizar los cálculos,mostrar resultados.
+3. Acerca de. (Muestra nombre del talento que
+desarrolló el ejercicio
+4. Salir.
+:'''))
+    match opcion:
+        case 1:
+            cantidad=int(input('Ingrese la cantidad de familiares:'))
+            for i in range(cantidad):
+                nombre=str(input('Digite su nombre: '))
+                edad=int(input('Digite su edad: '))
+                parentesco=str(input('Digite su parentesco: '))
+                bandera1=True
+        case 2:
+            if bandera1==True:
+                for j in range(cantidad):
+                    estatura=float(input('Digite su estatura: '))
+                    peso=float(input('Digite su peso: '))
+                    est=estatura/100
+                    imc=peso/(est**2)
+                    if imc<18.5:
+                        print('Bajo peso')
+                    elif imc>=18.5 and imc<=24.9:
+                        print('Normal')
+                    elif imc>=25 and imc<=28.9:
+                        print('Sobrepeso')
+                    elif imc>=29 and imc<=34.9:
+                        print('Obeso 1')
+                    elif imc>=35:
+                        print('Obeso 2')
+        case 3: 
+            print('Talentos que desarrollaron el ejercicio: Cielo Mariño y Cristhian Guzmán')
+        case 4:
+            break
